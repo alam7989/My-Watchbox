@@ -18,17 +18,20 @@ class ViewController: UIViewController {
         // Hide top cell separator
         tableView.tableHeaderView = UIView()
 
-        // Set table view data source
-        // Needed for standard table view setup:
-        //    - tableView(numberOfRowsInSection:)
-        //    - tableView(cellForRowAt:)
-        // Also for swipe to delete row:
-        //    - tableView(_:commit:forRowAt:)
         tableView.dataSource = self
 
-        // Set table view delegate
-        // Needed to detect row selection: tableView(_:didSelectRowAt:)
         tableView.delegate = self
+//        resetDefaults()
+//        print("resetting")
+    }
+    
+    
+    func resetDefaults() {
+        let defaults = UserDefaults.standard
+        let dictionary = defaults.dictionaryRepresentation()
+        dictionary.keys.forEach { key in
+            defaults.removeObject(forKey: key)
+        }
     }
     
     // Refresh the tasks list each time the view appears in case any tasks were updated on the other tab.
@@ -36,18 +39,17 @@ class ViewController: UIViewController {
         super.viewDidAppear(animated)
 
         refreshEntries()
+        print("VIEWDIDAPPEAR refreshed")
     }
     
     
     // When the "New" button is tapped, perform the segue with id, "ComposeSegue".
     @IBAction func didTapNewTaskButton(_ sender: Any) {
         performSegue(withIdentifier: "ComposeSegue", sender: nil)
-        print("gonan perform segue")
-        performSegue(withIdentifier: "ComposeSegue", sender:nil)
         print("DONE PERFORMING SEGUe")
     }
 
-    // Prepare for navigation to the Task Compose View Controller.
+    // Prepare for navigation to the New Entry View Controller.
     // 1. .
     //    - The segue ID, "ComposeSegue", was set in the storyboard.
    
@@ -59,14 +61,12 @@ class ViewController: UIViewController {
             if let composeNavController = segue.destination as? UINavigationController,
                 // then get the actual NewEntryViewController via the navigation controller's `topViewController` property
                let composeViewController = composeNavController.topViewController as? NewEntryViewController {
-                print("preparing for segue")
                 // Save the new entry and Refresh the tasks list
                 composeViewController.onComposeEntry = { [weak self] entry in
-                    print("segue save")
                     entry.save()
                     print("done segue save")
                     print("self is \(String(describing: self))")
-                    self!.refreshEntries()
+                    self?.refreshEntries()
                     print("done refreshing ")
                 }
             }
@@ -81,13 +81,12 @@ class ViewController: UIViewController {
         entries.sort { lhs, rhs in
             return lhs.title < rhs.title
         }
-        print("sorted entries: \(entries)")
 
         self.entry_list = entries // Update the main entry_list array with the refreshed and sorted entries
 //        emptyStateLabel.isHidden = !tasks.isEmpty // Hide the "empty state label" if there are tasks present
         tableView.reloadSections(IndexSet(integer: 0), with: .automatic) // Reload the table view data to reflect any updates to the entry_list array
         // reloadSections(IndexSet(integer: 0), with: .automatic) is similar to `reloadData()` with the added ability to update the table view changes with animation
-        print("done reloading table")
+        print("REFRESH ENTRIES done reloading table")
     }
     
     // prepare for segue
@@ -123,30 +122,24 @@ extension ViewController: UITableViewDataSource {
         cell.configure(with: entry)
         print("configured the cell")
         // Save the task passed back in the closure
-        entry.save()
-        print("saved the cell")
+        // entry.save()
+        // print("saved the cell")
         // Refresh the tasks list to reflect the updates with the saved task
-        self.refreshEntries()
-        print("refreshed")
+        // self.refreshEntries()
+        // print("refreshed")
         return cell
     }
 
     // Enable "Swipe to Delete" functionality. The existence of this data source method enables the default "Swipe to Delete".
-    // 1. Handle the "delete" case:
-    // 2. Remove the associated task from the tasks array.
-    // 3. Save the updated tasks array.
-    // 4. Tell the table view to delete the associated row.
-//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//        // 1.
-//        if editingStyle == .delete {
-//            // 2.
-//            tasks.remove(at: indexPath.row)
-//            // 3.
-//            Task.save(tasks)
-//            // 4.
-//            tableView.deleteRows(at: [indexPath], with: .automatic)
-//        }
-//    }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        print(indexPath.row)
+        // Handle the "delete" case
+        if editingStyle == .delete {
+            entry_list.remove(at: indexPath.row) // Remove the associated entry from the entry_list array
+            Entry.save(entry_list) // Save the updated entry_list array
+            tableView.deleteRows(at: [indexPath], with: .automatic) // Tell the table view to delete the associated row
+        }
+    }
 }
 
 // MARK: - Table View Delegate Methods

@@ -36,20 +36,14 @@ class NewEntryViewController: UIViewController {
     @IBAction func didTapDoneButton(_ sender: Any) {
         // Make sure we have non-nil text and the text isn't empty
         guard let title = titleTextField.text,
-              !title.isEmpty
-        else {
-            presentAlert(title: "Oops...", message: "Make sure to add a title!") // If it's nil or empty, present an alert prompting the user to enter a title
-            return
-        }
-        
-        guard let rating = ratingTextField.text,
+              !title.isEmpty,
+              let rating = ratingTextField.text,
               !rating.isEmpty
         else {
-            presentAlert(title: "Oops...", message: "Make sure to add a rating!") // If it's nil or empty, present an alert prompting the user to enter a rating
+            presentAlert(title: "Oops...", message: "Make sure to add a title and rating!") // If it's nil or empty, present an alert prompting the user to enter
             return
         }
-        
-        
+
         let note = noteTextView.text // can be empty
 
         let entry = Entry(title: title, rating: rating, note: note)
