@@ -9,7 +9,11 @@ import UIKit
 
 class NewEntryViewController: UIViewController {
     
-
+    
+    @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var rankTextField: UITextField!
+    @IBOutlet weak var noteTextView: UITextView!
+   
     override func viewDidLoad() {
         super.viewDidLoad()
 

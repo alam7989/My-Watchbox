@@ -137,7 +137,7 @@
         <!--NewEntry-->
         <scene sceneID="oCU-yN-iy0">
             <objects>
-                <viewController title="NewEntry" id="TIM-Rp-d1u" sceneMemberID="viewController">
+                <viewController title="NewEntry" id="TIM-Rp-d1u" customClass="NewEntryViewController" customModule="My_Watchbox" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="u2R-rM-owA">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -217,6 +217,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ZlK-k2-XAT"/>
+                    <connections>
+                        <outlet property="noteTextView" destination="JY5-YU-59N" id="e9P-Y9-YqD"/>
+                        <outlet property="rankTextField" destination="6KW-Q7-Wen" id="uOt-uA-dQv"/>
+                        <outlet property="titleField" destination="6KW-Q7-Wen" id="LvP-NZ-hAy"/>
+                        <outlet property="titleLabel" destination="6fD-k9-ymy" id="MOB-Uk-NKl"/>
+                        <outlet property="titleTextField" destination="6fD-k9-ymy" id="DnW-ZG-UdN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dxq-D6-ba1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="fRB-aS-eeV" userLabel="Exit" sceneMemberID="exit"/>
