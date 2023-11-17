@@ -15,6 +15,8 @@
 		B80EF6E52B06D52E00D56317 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B80EF6E32B06D52E00D56317 /* LaunchScreen.storyboard */; };
 		B80EF6ED2B06DA1400D56317 /* EntryCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80EF6EC2B06DA1400D56317 /* EntryCellTableViewCell.swift */; };
 		B80EF6EF2B06DE6900D56317 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80EF6EE2B06DE6900D56317 /* Entry.swift */; };
+		B80EF6F12B06E58600D56317 /* EntryDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80EF6F02B06E58600D56317 /* EntryDetailsViewController.swift */; };
+		B89AD01E2B06F07800D17A5F /* NewEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89AD01D2B06F07800D17A5F /* NewEntryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		B80EF6E62B06D52E00D56317 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B80EF6EC2B06DA1400D56317 /* EntryCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryCellTableViewCell.swift; sourceTree = "<group>"; };
 		B80EF6EE2B06DE6900D56317 /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
+		B80EF6F02B06E58600D56317 /* EntryDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetailsViewController.swift; sourceTree = "<group>"; };
+		B89AD01D2B06F07800D17A5F /* NewEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEntryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +48,7 @@
 		B80EF6CC2B06D52A00D56317 = {
 			isa = PBXGroup;
 			children = (
+				B89AD01D2B06F07800D17A5F /* NewEntryViewController.swift */,
 				B80EF6D72B06D52A00D56317 /* My-Watchbox */,
 				B80EF6D62B06D52A00D56317 /* Products */,
 			);
@@ -65,6 +70,7 @@
 				B80EF6DC2B06D52A00D56317 /* ViewController.swift */,
 				B80EF6EE2B06DE6900D56317 /* Entry.swift */,
 				B80EF6DE2B06D52A00D56317 /* Main.storyboard */,
+				B80EF6F02B06E58600D56317 /* EntryDetailsViewController.swift */,
 				B80EF6EC2B06DA1400D56317 /* EntryCellTableViewCell.swift */,
 				B80EF6E12B06D52E00D56317 /* Assets.xcassets */,
 				B80EF6E32B06D52E00D56317 /* LaunchScreen.storyboard */,
@@ -148,6 +154,8 @@
 				B80EF6ED2B06DA1400D56317 /* EntryCellTableViewCell.swift in Sources */,
 				B80EF6DD2B06D52A00D56317 /* ViewController.swift in Sources */,
 				B80EF6D92B06D52A00D56317 /* AppDelegate.swift in Sources */,
+				B80EF6F12B06E58600D56317 /* EntryDetailsViewController.swift in Sources */,
+				B89AD01E2B06F07800D17A5F /* NewEntryViewController.swift in Sources */,
 				B80EF6DB2B06D52A00D56317 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

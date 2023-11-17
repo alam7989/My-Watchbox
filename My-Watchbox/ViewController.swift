@@ -30,8 +30,17 @@ class ViewController: UIViewController {
         // Needed to detect row selection: tableView(_:didSelectRowAt:)
         tableView.delegate = self
     }
+    
+    // prepare for segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let selectedRow = tableView.indexPathForSelectedRow?.row else { return }
+        let selectedEntry = entry_list[selectedRow]
+        guard let detailViewController = segue.destination as? EntryDetailsViewController else { return }
+        detailViewController.entry = selectedEntry
+    }
 
 } // END OF CLASS
+
 
 
 
