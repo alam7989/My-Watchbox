@@ -8,21 +8,21 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet weak var tableView: UITableView!
     var entry_list = [Entry]() // initialized with a default value of an empty array
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Hide top cell separator
         tableView.tableHeaderView = UIView()
-
+        
         tableView.dataSource = self
-
+        
         tableView.delegate = self
-//        resetDefaults()
-//        print("resetting")
+        //        resetDefaults()
+        //        print("resetting")
     }
     
     
@@ -37,7 +37,7 @@ class ViewController: UIViewController {
     // Refresh the tasks list each time the view appears in case any tasks were updated on the other tab.
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
+        
         refreshEntries()
         print("VIEWDIDAPPEAR refreshed")
     }
@@ -48,18 +48,18 @@ class ViewController: UIViewController {
         performSegue(withIdentifier: "ComposeSegue", sender: nil)
         print("DONE PERFORMING SEGUe")
     }
-
+    
     // Prepare for navigation to the New Entry View Controller.
     // 1. .
     //    - The segue ID, "ComposeSegue", was set in the storyboard.
-   
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Check the segue identifier to confirm the segue that is being performed is indeed the "ComposeSegue"
         if segue.identifier == "ComposeSegue" {
             // Get the New Entry View Controller so we can configure it ahead of navigation
             // Since the segue is actually hooked up to the navigation controller that manages the NewEntryViewController, we need to access the navigation controller first
             if let composeNavController = segue.destination as? UINavigationController,
-                // then get the actual NewEntryViewController via the navigation controller's `topViewController` property
+               // then get the actual NewEntryViewController via the navigation controller's `topViewController` property
                let composeViewController = composeNavController.topViewController as? NewEntryViewController {
                 // Save the new entry and Refresh the tasks list
                 composeViewController.onComposeEntry = { [weak self] entry in
@@ -71,24 +71,12 @@ class ViewController: UIViewController {
                 }
             }
         }
-        
-        if segue.identifier == "DetailsSegue" {
-            if let detailsViewController = segue.destination as? EntryDetailsViewController,
-               let selectedEntry = sender as? Entry {
-                print("Selected Entry in prepare(for:sender:): \(selectedEntry)") // Add this line for debugging
-                print("detailsviewcontroller: \(detailsViewController)")
-                detailsViewController.entry = selectedEntry
-                print("detailsViewController.entry: \(detailsViewController.entry)")
-                print("detailsViewController: \(detailsViewController)")
-            }
-            // get the EntryDetails View Controller so we can configure it ahead of navigation
-//            if let detailsNavController = segue.destination as? UINavigationController,
-//                let detailsViewController = detailsNavController.topViewController as? EntryDetailsViewController,
-//                   let selectedEntry = sender as? Entry {
-//                    // pass the selected entry to the EntryDetails View Controller
-//                    print("SELECTED ENTRY: \(selectedEntry)")
-//                    detailsViewController.entry = selectedEntry
-//                }
+        // get the EntryDetails View Controller so we can configure it ahead of navigation
+        if segue.identifier == "DetailsSegue"{
+            guard let selectedRow = tableView.indexPathForSelectedRow?.row else { return }
+            let selectedEntry = entry_list[selectedRow]
+            guard let detailViewController = segue.destination as? EntryDetailsViewController else { return }
+            detailViewController.entry = selectedEntry
         }
     }
     

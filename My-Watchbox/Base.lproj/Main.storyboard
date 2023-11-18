@@ -36,6 +36,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UA4-SQ-89B">
+                                <rect key="frame" x="-1" y="130" width="77" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="&lt; Back"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Gku-hA-r1J"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -59,7 +65,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kwD-2T-Che" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1049.6183206106871" y="-671.12676056338034"/>
+            <point key="canvasLocation" x="1976.3358778625955" y="-671.12676056338034"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -100,7 +106,7 @@
                                         <connections>
                                             <outlet property="ratingLabel" destination="yh8-5f-aRx" id="GhF-KI-wfZ"/>
                                             <outlet property="titleLabel" destination="jE4-zn-ckW" id="QLX-G1-B0O"/>
-                                            <segue destination="0Oh-il-7bd" kind="show" identifier="DetailsSegue" id="Kf8-VR-5nx"/>
+                                            <segue destination="0Oh-il-7bd" kind="show" identifier="DetailsSegue" id="Bh3-rZ-fNH"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

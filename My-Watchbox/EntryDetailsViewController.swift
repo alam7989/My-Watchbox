@@ -12,14 +12,14 @@ class EntryDetailsViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var noteTextView: UITextView!
-    var entry: Entry!
+    var entry: Entry?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        navigationItem.largeTitleDisplayMode = .never
-        print("ENTRY IS:::: \(entry)")
+        //navigationItem.largeTitleDisplayMode = .never
+        print("ENTRY IS:::: \(String(describing: entry))")
       
         if let entry = entry {
             titleLabel.text = entry.title
@@ -42,5 +42,7 @@ class EntryDetailsViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
 
 }

@@ -59,8 +59,8 @@ extension Entry {
         print("imma save \(self)")
         var saved_entries = Entry.getEntries()
         
-        var i = 0
-        var inserted = false
+//        var i = 0
+//        var inserted = false
 //        while (i < saved_entries.count) {
 //            // check if the current entry (self) already exists in entries array
 //            if self.id == saved_entries[i].id {
