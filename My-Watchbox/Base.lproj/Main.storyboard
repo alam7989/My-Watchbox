@@ -36,11 +36,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UA4-SQ-89B">
-                                <rect key="frame" x="-1" y="130" width="77" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DO6-WP-5sg">
+                                <rect key="frame" x="8" y="130" width="77" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="&lt; Back"/>
+                                <connections>
+                                    <action selector="didTapBackButton:" destination="0Oh-il-7bd" eventType="touchUpInside" id="wfS-6Z-xaf"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Gku-hA-r1J"/>
@@ -50,9 +52,11 @@
                             <constraint firstItem="JIa-uI-gqV" firstAttribute="top" secondItem="h7e-no-2Y9" secondAttribute="bottom" constant="40" id="6R9-eS-A42"/>
                             <constraint firstItem="JIa-uI-gqV" firstAttribute="centerX" secondItem="3Xg-bT-Y24" secondAttribute="centerX" id="A31-vA-hV5"/>
                             <constraint firstItem="PU8-I4-p0J" firstAttribute="top" secondItem="Gku-hA-r1J" secondAttribute="top" constant="27" id="Ks2-ZI-mB9"/>
+                            <constraint firstItem="DO6-WP-5sg" firstAttribute="leading" secondItem="Gku-hA-r1J" secondAttribute="leading" constant="8" id="N3C-sQ-doK"/>
                             <constraint firstItem="JIa-uI-gqV" firstAttribute="leading" secondItem="3Xg-bT-Y24" secondAttribute="leadingMargin" id="PrW-sX-Mqb"/>
                             <constraint firstItem="h7e-no-2Y9" firstAttribute="top" secondItem="PU8-I4-p0J" secondAttribute="bottom" constant="45" id="WUX-UT-eoM"/>
                             <constraint firstItem="PU8-I4-p0J" firstAttribute="centerX" secondItem="3Xg-bT-Y24" secondAttribute="centerX" id="mKD-pI-BpX"/>
+                            <constraint firstItem="DO6-WP-5sg" firstAttribute="top" secondItem="Gku-hA-r1J" secondAttribute="top" constant="27" id="pOK-3U-vTO"/>
                             <constraint firstItem="Gku-hA-r1J" firstAttribute="bottom" secondItem="JIa-uI-gqV" secondAttribute="bottom" constant="11" id="r0C-ng-j8Y"/>
                         </constraints>
                     </view>

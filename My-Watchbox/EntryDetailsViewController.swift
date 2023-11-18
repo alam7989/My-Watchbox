@@ -17,9 +17,7 @@ class EntryDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-        //navigationItem.largeTitleDisplayMode = .never
-        print("ENTRY IS:::: \(String(describing: entry))")
+        navigationItem.largeTitleDisplayMode = .never
       
         if let entry = entry {
             titleLabel.text = entry.title
@@ -44,5 +42,10 @@ class EntryDetailsViewController: UIViewController {
     */
     
     
-
+    @IBAction func didTapBackButton(_ sender: Any) {
+        dismiss(animated: true)
+        
+        
+    }
+    
 }
