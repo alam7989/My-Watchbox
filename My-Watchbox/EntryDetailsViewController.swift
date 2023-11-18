@@ -19,10 +19,17 @@ class EntryDetailsViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         navigationItem.largeTitleDisplayMode = .never
-        // Remove HTML tags from the caption string
-        titleLabel.text = entry.title
-        ratingLabel.text = "Rating: \(entry.rating) / 5"
-        noteTextView.text = entry.note
+        print("ENTRY IS:::: \(entry)")
+      
+        if let entry = entry {
+            titleLabel.text = entry.title
+            ratingLabel.text = "Rating: \(entry.rating) / 5"
+            noteTextView.text = entry.note
+        } else {
+            // entry is nil
+            print("Error: no entry :(")
+            dismiss(animated: true, completion: nil)
+        }
     }
     
 

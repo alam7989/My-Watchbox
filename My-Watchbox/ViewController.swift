@@ -71,6 +71,25 @@ class ViewController: UIViewController {
                 }
             }
         }
+        
+        if segue.identifier == "DetailsSegue" {
+            if let detailsViewController = segue.destination as? EntryDetailsViewController,
+               let selectedEntry = sender as? Entry {
+                print("Selected Entry in prepare(for:sender:): \(selectedEntry)") // Add this line for debugging
+                print("detailsviewcontroller: \(detailsViewController)")
+                detailsViewController.entry = selectedEntry
+                print("detailsViewController.entry: \(detailsViewController.entry)")
+                print("detailsViewController: \(detailsViewController)")
+            }
+            // get the EntryDetails View Controller so we can configure it ahead of navigation
+//            if let detailsNavController = segue.destination as? UINavigationController,
+//                let detailsViewController = detailsNavController.topViewController as? EntryDetailsViewController,
+//                   let selectedEntry = sender as? Entry {
+//                    // pass the selected entry to the EntryDetails View Controller
+//                    print("SELECTED ENTRY: \(selectedEntry)")
+//                    detailsViewController.entry = selectedEntry
+//                }
+        }
     }
     
     
@@ -153,14 +172,15 @@ extension ViewController: UITableViewDelegate {
     // 2. Get the task associated with the selected row.
     // 3. Perform the segue to the Compose View Controller (i.e. "ComposeSegue") passing in the selected task for the sender.
     //    - The sender can be any type and you can use it however you want. In this case we pass in the selected task so we can have easy access to it when preparing for navigation to the Compose View Controller when preparing for the segue in prepare(for:sender)
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        // 1.
-//        tableView.deselectRow(at: indexPath, animated: false)
-//        // 2.
-//        let selectedEntry = entry_list[indexPath.row]
-//        // 3.
-//        performSegue(withIdentifier: "ComposeSegue", sender: selectedEntry)
-//    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // 1.
+        tableView.deselectRow(at: indexPath, animated: false)
+        // 2.
+        let selectedEntry = entry_list[indexPath.row]
+        print("Selected Entry in didSelectRowAt: \(selectedEntry)") // Add this line for debugging
+        // 3.
+        performSegue(withIdentifier: "DetailsSegue", sender: selectedEntry)
+    }
     
 }
     

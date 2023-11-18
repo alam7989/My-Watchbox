@@ -100,7 +100,7 @@
                                         <connections>
                                             <outlet property="ratingLabel" destination="yh8-5f-aRx" id="GhF-KI-wfZ"/>
                                             <outlet property="titleLabel" destination="jE4-zn-ckW" id="QLX-G1-B0O"/>
-                                            <segue destination="0Oh-il-7bd" kind="show" id="Kf8-VR-5nx"/>
+                                            <segue destination="0Oh-il-7bd" kind="show" identifier="DetailsSegue" id="Kf8-VR-5nx"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
