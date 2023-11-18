@@ -61,13 +61,13 @@ Next time your friends ask you for a movie suggestion, be prepared with My Watch
 
 ### 2. Screen Archetypes
 
-- [ ] List Feed 
+- [X] List Feed 
 * user can scroll through the list of previously-created movie/show entry previews
 * movie/show entries are saved even when exitting and re-opening the app
 * user can click an entry to view all of the entry details
-- [ ] Entry Details
+- [X] Entry Details
 * view all of the entry details
-- [ ] New Entry
+- [X] New Entry
 * user can create a new movie/show entry
 - [ ] Where-to-watch Search
 * user can search for a movie/show and see where it is being shown nearby
@@ -84,11 +84,11 @@ Next time your friends ask you for a movie suggestion, be prepared with My Watch
 
 **Flow Navigation** (Screen to Screen)
 
-- [ ] List Feed
+- [X] List Feed
 * => Create
 * => Entry Details
 * ...
-- [ ] New Entry
+- [X] New Entry
 * => List Feed
 
 ## Wireframes
