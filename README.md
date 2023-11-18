@@ -113,6 +113,9 @@ Next time your friends ask you for a movie suggestion, be prepared with My Watch
 - [Create basic snippets for each Parse network request]
 - [OPTIONAL: List endpoints if using existing API such as Yelp]
 
+## Video Walkthrough
+!()[https://github.com/alam7989/My-Watchbox/blob/main/My-Watchbox_walkthrough.mov]
+
 ## Checklist
 ### Sprint 1: Achieve Required/Must-have Functionalities
 - [X] Create View Controller for the List Feed page
